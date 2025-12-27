@@ -1106,7 +1106,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "go_expression"
+          "name": "async_expression"
         },
         {
           "type": "SYMBOL",
@@ -2329,7 +2329,7 @@
         ]
       }
     },
-    "go_expression": {
+    "async_expression": {
       "type": "PREC_RIGHT",
       "value": 14,
       "content": {
@@ -2337,7 +2337,7 @@
         "members": [
           {
             "type": "STRING",
-            "value": "go"
+            "value": "async"
           },
           {
             "type": "SYMBOL",

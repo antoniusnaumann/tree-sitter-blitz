@@ -68,6 +68,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -113,10 +117,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -213,6 +213,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -258,10 +262,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -333,7 +333,7 @@
     }
   },
   {
-    "type": "await_expression",
+    "type": "async_expression",
     "named": true,
     "fields": {},
     "children": {
@@ -342,6 +342,10 @@
       "types": [
         {
           "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "async_expression",
           "named": true
         },
         {
@@ -393,7 +397,134 @@
           "named": true
         },
         {
-          "type": "go_expression",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "list_literal",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "ordered_dict_literal",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "range_literal",
+          "named": true
+        },
+        {
+          "type": "return_expression",
+          "named": true
+        },
+        {
+          "type": "set_literal",
+          "named": true
+        },
+        {
+          "type": "string_interpolation",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "while_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "await_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "async_expression",
+          "named": true
+        },
+        {
+          "type": "await_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "break_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "compound_assignment_expression",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "continue_expression",
+          "named": true
+        },
+        {
+          "type": "dict_literal",
+          "named": true
+        },
+        {
+          "type": "for_expression",
           "named": true
         },
         {
@@ -476,6 +607,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -521,10 +656,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -730,6 +861,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -775,10 +910,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -898,6 +1029,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -943,10 +1078,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -1050,6 +1181,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -1095,10 +1230,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -1182,6 +1313,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -1227,10 +1362,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -1308,6 +1439,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -1353,10 +1488,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -1481,6 +1612,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -1526,10 +1661,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -1658,6 +1789,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -1703,10 +1838,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -1900,137 +2031,6 @@
     }
   },
   {
-    "type": "go_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "assignment_expression",
-          "named": true
-        },
-        {
-          "type": "await_expression",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "boolean_literal",
-          "named": true
-        },
-        {
-          "type": "break_expression",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "char_literal",
-          "named": true
-        },
-        {
-          "type": "compound_assignment_expression",
-          "named": true
-        },
-        {
-          "type": "constructor_expression",
-          "named": true
-        },
-        {
-          "type": "continue_expression",
-          "named": true
-        },
-        {
-          "type": "dict_literal",
-          "named": true
-        },
-        {
-          "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "list_literal",
-          "named": true
-        },
-        {
-          "type": "member_expression",
-          "named": true
-        },
-        {
-          "type": "number_literal",
-          "named": true
-        },
-        {
-          "type": "ordered_dict_literal",
-          "named": true
-        },
-        {
-          "type": "parenthesized_expression",
-          "named": true
-        },
-        {
-          "type": "range_literal",
-          "named": true
-        },
-        {
-          "type": "return_expression",
-          "named": true
-        },
-        {
-          "type": "set_literal",
-          "named": true
-        },
-        {
-          "type": "string_interpolation",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "switch_expression",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "while_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "if_expression",
     "named": true,
     "fields": {
@@ -2054,6 +2054,10 @@
         "types": [
           {
             "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "async_expression",
             "named": true
           },
           {
@@ -2102,10 +2106,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -2199,6 +2199,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -2244,10 +2248,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -2345,6 +2345,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -2390,10 +2394,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -2604,6 +2604,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -2649,10 +2653,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -2774,6 +2774,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -2819,10 +2823,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -2975,6 +2975,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -3020,10 +3024,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -3106,6 +3106,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -3151,10 +3155,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -3291,6 +3291,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -3336,10 +3340,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -3569,6 +3569,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -3614,10 +3618,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -3792,6 +3792,10 @@
           "named": true
         },
         {
+          "type": "async_expression",
+          "named": true
+        },
+        {
           "type": "await_expression",
           "named": true
         },
@@ -3837,10 +3841,6 @@
         },
         {
           "type": "for_expression",
-          "named": true
-        },
-        {
-          "type": "go_expression",
           "named": true
         },
         {
@@ -3989,6 +3989,10 @@
             "named": true
           },
           {
+            "type": "async_expression",
+            "named": true
+          },
+          {
             "type": "await_expression",
             "named": true
           },
@@ -4034,10 +4038,6 @@
           },
           {
             "type": "for_expression",
-            "named": true
-          },
-          {
-            "type": "go_expression",
             "named": true
           },
           {
@@ -4305,6 +4305,10 @@
     "named": false
   },
   {
+    "type": "async",
+    "named": false
+  },
+  {
     "type": "await",
     "named": false
   },
@@ -4334,10 +4338,6 @@
   },
   {
     "type": "for",
-    "named": false
-  },
-  {
-    "type": "go",
     "named": false
   },
   {

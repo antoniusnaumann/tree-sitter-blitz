@@ -81,7 +81,7 @@ enum ts_symbol_identifiers {
   sym_break_expression = 63,
   sym_continue_expression = 64,
   anon_sym_await = 65,
-  anon_sym_go = 66,
+  anon_sym_async = 66,
   sym_number_literal = 67,
   anon_sym_DQUOTE = 68,
   aux_sym_string_literal_token1 = 69,
@@ -143,7 +143,7 @@ enum ts_symbol_identifiers {
   sym_block = 125,
   sym_return_expression = 126,
   sym_await_expression = 127,
-  sym_go_expression = 128,
+  sym_async_expression = 128,
   sym_string_literal = 129,
   sym_string_interpolation = 130,
   sym_char_literal = 131,
@@ -236,7 +236,7 @@ static const char * const ts_symbol_names[] = {
   [sym_break_expression] = "break_expression",
   [sym_continue_expression] = "continue_expression",
   [anon_sym_await] = "await",
-  [anon_sym_go] = "go",
+  [anon_sym_async] = "async",
   [sym_number_literal] = "number_literal",
   [anon_sym_DQUOTE] = "\"",
   [aux_sym_string_literal_token1] = "string_literal_token1",
@@ -298,7 +298,7 @@ static const char * const ts_symbol_names[] = {
   [sym_block] = "block",
   [sym_return_expression] = "return_expression",
   [sym_await_expression] = "await_expression",
-  [sym_go_expression] = "go_expression",
+  [sym_async_expression] = "async_expression",
   [sym_string_literal] = "string_literal",
   [sym_string_interpolation] = "string_interpolation",
   [sym_char_literal] = "char_literal",
@@ -391,7 +391,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_break_expression] = sym_break_expression,
   [sym_continue_expression] = sym_continue_expression,
   [anon_sym_await] = anon_sym_await,
-  [anon_sym_go] = anon_sym_go,
+  [anon_sym_async] = anon_sym_async,
   [sym_number_literal] = sym_number_literal,
   [anon_sym_DQUOTE] = anon_sym_DQUOTE,
   [aux_sym_string_literal_token1] = aux_sym_string_literal_token1,
@@ -453,7 +453,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_block] = sym_block,
   [sym_return_expression] = sym_return_expression,
   [sym_await_expression] = sym_await_expression,
-  [sym_go_expression] = sym_go_expression,
+  [sym_async_expression] = sym_async_expression,
   [sym_string_literal] = sym_string_literal,
   [sym_string_interpolation] = sym_string_interpolation,
   [sym_char_literal] = sym_char_literal,
@@ -744,7 +744,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [anon_sym_go] = {
+  [anon_sym_async] = {
     .visible = true,
     .named = false,
   },
@@ -992,7 +992,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_go_expression] = {
+  [sym_async_expression] = {
     .visible = true,
     .named = true,
   },
@@ -2194,17 +2194,16 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
         'c', 4,
         'e', 5,
         'f', 6,
-        'g', 7,
-        'i', 8,
-        'l', 9,
-        'm', 10,
-        'o', 11,
-        'p', 12,
-        'r', 13,
-        's', 14,
-        't', 15,
-        'u', 16,
-        'w', 17,
+        'i', 7,
+        'l', 8,
+        'm', 9,
+        'o', 10,
+        'p', 11,
+        'r', 12,
+        's', 13,
+        't', 14,
+        'u', 15,
+        'w', 16,
       );
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
@@ -2213,219 +2212,220 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym__);
       END_STATE();
     case 2:
-      if (lookahead == 'c') ADVANCE(18);
-      if (lookahead == 'l') ADVANCE(19);
-      if (lookahead == 'n') ADVANCE(20);
-      if (lookahead == 's') ADVANCE(21);
-      if (lookahead == 'w') ADVANCE(22);
+      if (lookahead == 'c') ADVANCE(17);
+      if (lookahead == 'l') ADVANCE(18);
+      if (lookahead == 'n') ADVANCE(19);
+      if (lookahead == 's') ADVANCE(20);
+      if (lookahead == 'w') ADVANCE(21);
       END_STATE();
     case 3:
-      if (lookahead == 'r') ADVANCE(23);
+      if (lookahead == 'r') ADVANCE(22);
       END_STATE();
     case 4:
-      if (lookahead == 'o') ADVANCE(24);
+      if (lookahead == 'o') ADVANCE(23);
       END_STATE();
     case 5:
-      if (lookahead == 'l') ADVANCE(25);
+      if (lookahead == 'l') ADVANCE(24);
       END_STATE();
     case 6:
-      if (lookahead == 'a') ADVANCE(26);
-      if (lookahead == 'n') ADVANCE(27);
-      if (lookahead == 'o') ADVANCE(28);
+      if (lookahead == 'a') ADVANCE(25);
+      if (lookahead == 'n') ADVANCE(26);
+      if (lookahead == 'o') ADVANCE(27);
       END_STATE();
     case 7:
-      if (lookahead == 'o') ADVANCE(29);
+      if (lookahead == 'f') ADVANCE(28);
       END_STATE();
     case 8:
-      if (lookahead == 'f') ADVANCE(30);
+      if (lookahead == 'e') ADVANCE(29);
       END_STATE();
     case 9:
-      if (lookahead == 'e') ADVANCE(31);
+      if (lookahead == 'u') ADVANCE(30);
       END_STATE();
     case 10:
-      if (lookahead == 'u') ADVANCE(32);
+      if (lookahead == 'r') ADVANCE(31);
       END_STATE();
     case 11:
-      if (lookahead == 'r') ADVANCE(33);
+      if (lookahead == 'u') ADVANCE(32);
       END_STATE();
     case 12:
-      if (lookahead == 'u') ADVANCE(34);
+      if (lookahead == 'e') ADVANCE(33);
       END_STATE();
     case 13:
-      if (lookahead == 'e') ADVANCE(35);
+      if (lookahead == 't') ADVANCE(34);
+      if (lookahead == 'w') ADVANCE(35);
       END_STATE();
     case 14:
-      if (lookahead == 't') ADVANCE(36);
-      if (lookahead == 'w') ADVANCE(37);
+      if (lookahead == 'e') ADVANCE(36);
+      if (lookahead == 'r') ADVANCE(37);
       END_STATE();
     case 15:
-      if (lookahead == 'e') ADVANCE(38);
-      if (lookahead == 'r') ADVANCE(39);
+      if (lookahead == 'n') ADVANCE(38);
       END_STATE();
     case 16:
-      if (lookahead == 'n') ADVANCE(40);
+      if (lookahead == 'h') ADVANCE(39);
       END_STATE();
     case 17:
-      if (lookahead == 'h') ADVANCE(41);
+      if (lookahead == 't') ADVANCE(40);
       END_STATE();
     case 18:
-      if (lookahead == 't') ADVANCE(42);
+      if (lookahead == 'i') ADVANCE(41);
       END_STATE();
     case 19:
-      if (lookahead == 'i') ADVANCE(43);
+      if (lookahead == 'd') ADVANCE(42);
       END_STATE();
     case 20:
-      if (lookahead == 'd') ADVANCE(44);
+      ACCEPT_TOKEN(anon_sym_as);
+      if (lookahead == 'y') ADVANCE(43);
       END_STATE();
     case 21:
-      ACCEPT_TOKEN(anon_sym_as);
+      if (lookahead == 'a') ADVANCE(44);
       END_STATE();
     case 22:
-      if (lookahead == 'a') ADVANCE(45);
+      if (lookahead == 'e') ADVANCE(45);
       END_STATE();
     case 23:
-      if (lookahead == 'e') ADVANCE(46);
+      if (lookahead == 'n') ADVANCE(46);
       END_STATE();
     case 24:
-      if (lookahead == 'n') ADVANCE(47);
+      if (lookahead == 's') ADVANCE(47);
       END_STATE();
     case 25:
-      if (lookahead == 's') ADVANCE(48);
+      if (lookahead == 'l') ADVANCE(48);
       END_STATE();
     case 26:
-      if (lookahead == 'l') ADVANCE(49);
-      END_STATE();
-    case 27:
       ACCEPT_TOKEN(anon_sym_fn);
       END_STATE();
+    case 27:
+      if (lookahead == 'r') ADVANCE(49);
+      END_STATE();
     case 28:
-      if (lookahead == 'r') ADVANCE(50);
-      END_STATE();
-    case 29:
-      ACCEPT_TOKEN(anon_sym_go);
-      END_STATE();
-    case 30:
       ACCEPT_TOKEN(anon_sym_if);
       END_STATE();
-    case 31:
+    case 29:
+      if (lookahead == 't') ADVANCE(50);
+      END_STATE();
+    case 30:
       if (lookahead == 't') ADVANCE(51);
       END_STATE();
-    case 32:
-      if (lookahead == 't') ADVANCE(52);
-      END_STATE();
-    case 33:
+    case 31:
       ACCEPT_TOKEN(anon_sym_or);
       END_STATE();
+    case 32:
+      if (lookahead == 'b') ADVANCE(52);
+      END_STATE();
+    case 33:
+      if (lookahead == 't') ADVANCE(53);
+      END_STATE();
     case 34:
-      if (lookahead == 'b') ADVANCE(53);
+      if (lookahead == 'r') ADVANCE(54);
       END_STATE();
     case 35:
-      if (lookahead == 't') ADVANCE(54);
+      if (lookahead == 'i') ADVANCE(55);
       END_STATE();
     case 36:
-      if (lookahead == 'r') ADVANCE(55);
+      if (lookahead == 's') ADVANCE(56);
       END_STATE();
     case 37:
-      if (lookahead == 'i') ADVANCE(56);
+      if (lookahead == 'u') ADVANCE(57);
       END_STATE();
     case 38:
-      if (lookahead == 's') ADVANCE(57);
+      if (lookahead == 'i') ADVANCE(58);
       END_STATE();
     case 39:
-      if (lookahead == 'u') ADVANCE(58);
-      END_STATE();
-    case 40:
       if (lookahead == 'i') ADVANCE(59);
       END_STATE();
+    case 40:
+      if (lookahead == 'o') ADVANCE(60);
+      END_STATE();
     case 41:
-      if (lookahead == 'i') ADVANCE(60);
+      if (lookahead == 'a') ADVANCE(61);
       END_STATE();
     case 42:
-      if (lookahead == 'o') ADVANCE(61);
-      END_STATE();
-    case 43:
-      if (lookahead == 'a') ADVANCE(62);
-      END_STATE();
-    case 44:
       ACCEPT_TOKEN(anon_sym_and);
       END_STATE();
-    case 45:
+    case 43:
+      if (lookahead == 'n') ADVANCE(62);
+      END_STATE();
+    case 44:
       if (lookahead == 'i') ADVANCE(63);
       END_STATE();
-    case 46:
+    case 45:
       if (lookahead == 'a') ADVANCE(64);
       END_STATE();
-    case 47:
+    case 46:
       if (lookahead == 't') ADVANCE(65);
       END_STATE();
-    case 48:
+    case 47:
       if (lookahead == 'e') ADVANCE(66);
       END_STATE();
-    case 49:
+    case 48:
       if (lookahead == 's') ADVANCE(67);
       END_STATE();
-    case 50:
+    case 49:
       ACCEPT_TOKEN(anon_sym_for);
       END_STATE();
-    case 51:
+    case 50:
       ACCEPT_TOKEN(anon_sym_let);
       END_STATE();
-    case 52:
+    case 51:
       ACCEPT_TOKEN(anon_sym_mut);
       END_STATE();
-    case 53:
+    case 52:
       ACCEPT_TOKEN(anon_sym_pub);
       END_STATE();
-    case 54:
+    case 53:
       if (lookahead == 'u') ADVANCE(68);
       END_STATE();
-    case 55:
+    case 54:
       if (lookahead == 'u') ADVANCE(69);
       END_STATE();
-    case 56:
+    case 55:
       if (lookahead == 't') ADVANCE(70);
       END_STATE();
-    case 57:
+    case 56:
       if (lookahead == 't') ADVANCE(71);
       END_STATE();
-    case 58:
+    case 57:
       if (lookahead == 'e') ADVANCE(72);
       END_STATE();
-    case 59:
+    case 58:
       if (lookahead == 'o') ADVANCE(73);
       END_STATE();
-    case 60:
+    case 59:
       if (lookahead == 'l') ADVANCE(74);
       END_STATE();
-    case 61:
+    case 60:
       if (lookahead == 'r') ADVANCE(75);
       END_STATE();
-    case 62:
+    case 61:
       if (lookahead == 's') ADVANCE(76);
       END_STATE();
+    case 62:
+      if (lookahead == 'c') ADVANCE(77);
+      END_STATE();
     case 63:
-      if (lookahead == 't') ADVANCE(77);
+      if (lookahead == 't') ADVANCE(78);
       END_STATE();
     case 64:
-      if (lookahead == 'k') ADVANCE(78);
+      if (lookahead == 'k') ADVANCE(79);
       END_STATE();
     case 65:
-      if (lookahead == 'i') ADVANCE(79);
+      if (lookahead == 'i') ADVANCE(80);
       END_STATE();
     case 66:
       ACCEPT_TOKEN(anon_sym_else);
       END_STATE();
     case 67:
-      if (lookahead == 'e') ADVANCE(80);
+      if (lookahead == 'e') ADVANCE(81);
       END_STATE();
     case 68:
-      if (lookahead == 'r') ADVANCE(81);
+      if (lookahead == 'r') ADVANCE(82);
       END_STATE();
     case 69:
-      if (lookahead == 'c') ADVANCE(82);
+      if (lookahead == 'c') ADVANCE(83);
       END_STATE();
     case 70:
-      if (lookahead == 'c') ADVANCE(83);
+      if (lookahead == 'c') ADVANCE(84);
       END_STATE();
     case 71:
       ACCEPT_TOKEN(anon_sym_test);
@@ -2434,10 +2434,10 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_true);
       END_STATE();
     case 73:
-      if (lookahead == 'n') ADVANCE(84);
+      if (lookahead == 'n') ADVANCE(85);
       END_STATE();
     case 74:
-      if (lookahead == 'e') ADVANCE(85);
+      if (lookahead == 'e') ADVANCE(86);
       END_STATE();
     case 75:
       ACCEPT_TOKEN(anon_sym_actor);
@@ -2446,48 +2446,51 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_alias);
       END_STATE();
     case 77:
-      ACCEPT_TOKEN(anon_sym_await);
+      ACCEPT_TOKEN(anon_sym_async);
       END_STATE();
     case 78:
-      ACCEPT_TOKEN(sym_break_expression);
+      ACCEPT_TOKEN(anon_sym_await);
       END_STATE();
     case 79:
-      if (lookahead == 'n') ADVANCE(86);
+      ACCEPT_TOKEN(sym_break_expression);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(anon_sym_false);
-      END_STATE();
-    case 81:
       if (lookahead == 'n') ADVANCE(87);
       END_STATE();
+    case 81:
+      ACCEPT_TOKEN(anon_sym_false);
+      END_STATE();
     case 82:
-      if (lookahead == 't') ADVANCE(88);
+      if (lookahead == 'n') ADVANCE(88);
       END_STATE();
     case 83:
-      if (lookahead == 'h') ADVANCE(89);
+      if (lookahead == 't') ADVANCE(89);
       END_STATE();
     case 84:
-      ACCEPT_TOKEN(anon_sym_union);
+      if (lookahead == 'h') ADVANCE(90);
       END_STATE();
     case 85:
-      ACCEPT_TOKEN(anon_sym_while);
+      ACCEPT_TOKEN(anon_sym_union);
       END_STATE();
     case 86:
-      if (lookahead == 'u') ADVANCE(90);
+      ACCEPT_TOKEN(anon_sym_while);
       END_STATE();
     case 87:
-      ACCEPT_TOKEN(anon_sym_return);
+      if (lookahead == 'u') ADVANCE(91);
       END_STATE();
     case 88:
-      ACCEPT_TOKEN(anon_sym_struct);
+      ACCEPT_TOKEN(anon_sym_return);
       END_STATE();
     case 89:
-      ACCEPT_TOKEN(anon_sym_switch);
+      ACCEPT_TOKEN(anon_sym_struct);
       END_STATE();
     case 90:
-      if (lookahead == 'e') ADVANCE(91);
+      ACCEPT_TOKEN(anon_sym_switch);
       END_STATE();
     case 91:
+      if (lookahead == 'e') ADVANCE(92);
+      END_STATE();
+    case 92:
       ACCEPT_TOKEN(sym_continue_expression);
       END_STATE();
     default:
@@ -3087,7 +3090,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(1),
     [sym_continue_expression] = ACTIONS(1),
     [anon_sym_await] = ACTIONS(1),
-    [anon_sym_go] = ACTIONS(1),
+    [anon_sym_async] = ACTIONS(1),
     [sym_number_literal] = ACTIONS(1),
     [anon_sym_DQUOTE] = ACTIONS(1),
     [anon_sym_BSLASH] = ACTIONS(1),
@@ -3139,7 +3142,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(73),
     [sym_return_expression] = STATE(73),
     [sym_await_expression] = STATE(73),
-    [sym_go_expression] = STATE(73),
+    [sym_async_expression] = STATE(73),
     [sym_string_literal] = STATE(73),
     [sym_string_interpolation] = STATE(73),
     [sym_char_literal] = STATE(73),
@@ -3190,7 +3193,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(61),
     [sym_continue_expression] = ACTIONS(61),
     [anon_sym_await] = ACTIONS(64),
-    [anon_sym_go] = ACTIONS(67),
+    [anon_sym_async] = ACTIONS(67),
     [sym_number_literal] = ACTIONS(70),
     [anon_sym_DQUOTE] = ACTIONS(73),
     [anon_sym_SQUOTE] = ACTIONS(76),
@@ -3219,7 +3222,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(220),
     [sym_return_expression] = STATE(220),
     [sym_await_expression] = STATE(220),
-    [sym_go_expression] = STATE(220),
+    [sym_async_expression] = STATE(220),
     [sym_string_literal] = STATE(220),
     [sym_string_interpolation] = STATE(220),
     [sym_char_literal] = STATE(220),
@@ -3270,7 +3273,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(109),
     [sym_continue_expression] = ACTIONS(109),
     [anon_sym_await] = ACTIONS(111),
-    [anon_sym_go] = ACTIONS(113),
+    [anon_sym_async] = ACTIONS(113),
     [sym_number_literal] = ACTIONS(115),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3299,7 +3302,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(199),
     [sym_return_expression] = STATE(199),
     [sym_await_expression] = STATE(199),
-    [sym_go_expression] = STATE(199),
+    [sym_async_expression] = STATE(199),
     [sym_string_literal] = STATE(199),
     [sym_string_interpolation] = STATE(199),
     [sym_char_literal] = STATE(199),
@@ -3347,7 +3350,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(143),
     [sym_continue_expression] = ACTIONS(143),
     [anon_sym_await] = ACTIONS(145),
-    [anon_sym_go] = ACTIONS(147),
+    [anon_sym_async] = ACTIONS(147),
     [sym_number_literal] = ACTIONS(149),
     [anon_sym_DQUOTE] = ACTIONS(73),
     [anon_sym_SQUOTE] = ACTIONS(76),
@@ -3376,7 +3379,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(262),
     [sym_return_expression] = STATE(262),
     [sym_await_expression] = STATE(262),
-    [sym_go_expression] = STATE(262),
+    [sym_async_expression] = STATE(262),
     [sym_string_literal] = STATE(262),
     [sym_string_interpolation] = STATE(262),
     [sym_char_literal] = STATE(262),
@@ -3422,7 +3425,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(166),
     [sym_continue_expression] = ACTIONS(166),
     [anon_sym_await] = ACTIONS(168),
-    [anon_sym_go] = ACTIONS(170),
+    [anon_sym_async] = ACTIONS(170),
     [sym_number_literal] = ACTIONS(172),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3465,7 +3468,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(67),
     [sym_return_expression] = STATE(67),
     [sym_await_expression] = STATE(67),
-    [sym_go_expression] = STATE(67),
+    [sym_async_expression] = STATE(67),
     [sym_string_literal] = STATE(67),
     [sym_string_interpolation] = STATE(67),
     [sym_char_literal] = STATE(67),
@@ -3497,7 +3500,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(192),
     [sym_continue_expression] = ACTIONS(192),
     [anon_sym_await] = ACTIONS(194),
-    [anon_sym_go] = ACTIONS(196),
+    [anon_sym_async] = ACTIONS(196),
     [sym_number_literal] = ACTIONS(198),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3536,7 +3539,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(67),
     [sym_return_expression] = STATE(67),
     [sym_await_expression] = STATE(67),
-    [sym_go_expression] = STATE(67),
+    [sym_async_expression] = STATE(67),
     [sym_string_literal] = STATE(67),
     [sym_string_interpolation] = STATE(67),
     [sym_char_literal] = STATE(67),
@@ -3568,7 +3571,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(192),
     [sym_continue_expression] = ACTIONS(192),
     [anon_sym_await] = ACTIONS(194),
-    [anon_sym_go] = ACTIONS(196),
+    [anon_sym_async] = ACTIONS(196),
     [sym_number_literal] = ACTIONS(198),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3607,7 +3610,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(100),
     [sym_return_expression] = STATE(100),
     [sym_await_expression] = STATE(100),
-    [sym_go_expression] = STATE(100),
+    [sym_async_expression] = STATE(100),
     [sym_string_literal] = STATE(100),
     [sym_string_interpolation] = STATE(100),
     [sym_char_literal] = STATE(100),
@@ -3638,7 +3641,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(204),
     [sym_continue_expression] = ACTIONS(204),
     [anon_sym_await] = ACTIONS(194),
-    [anon_sym_go] = ACTIONS(196),
+    [anon_sym_async] = ACTIONS(196),
     [sym_number_literal] = ACTIONS(206),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3677,7 +3680,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_block] = STATE(100),
     [sym_return_expression] = STATE(100),
     [sym_await_expression] = STATE(100),
-    [sym_go_expression] = STATE(100),
+    [sym_async_expression] = STATE(100),
     [sym_string_literal] = STATE(100),
     [sym_string_interpolation] = STATE(100),
     [sym_char_literal] = STATE(100),
@@ -3708,7 +3711,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(204),
     [sym_continue_expression] = ACTIONS(204),
     [anon_sym_await] = ACTIONS(194),
-    [anon_sym_go] = ACTIONS(196),
+    [anon_sym_async] = ACTIONS(196),
     [sym_number_literal] = ACTIONS(206),
     [anon_sym_DQUOTE] = ACTIONS(117),
     [anon_sym_SQUOTE] = ACTIONS(119),
@@ -3773,7 +3776,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(210),
     [sym_continue_expression] = ACTIONS(210),
     [anon_sym_await] = ACTIONS(210),
-    [anon_sym_go] = ACTIONS(210),
+    [anon_sym_async] = ACTIONS(210),
     [sym_number_literal] = ACTIONS(212),
     [anon_sym_DQUOTE] = ACTIONS(212),
     [anon_sym_SQUOTE] = ACTIONS(212),
@@ -3840,7 +3843,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_break_expression] = ACTIONS(214),
     [sym_continue_expression] = ACTIONS(214),
     [anon_sym_await] = ACTIONS(214),
-    [anon_sym_go] = ACTIONS(214),
+    [anon_sym_async] = ACTIONS(214),
     [sym_number_literal] = ACTIONS(218),
     [anon_sym_DQUOTE] = ACTIONS(218),
     [anon_sym_SQUOTE] = ACTIONS(218),
@@ -3875,7 +3878,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -3936,7 +3939,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -3978,7 +3981,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(198), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -4019,7 +4022,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4061,7 +4064,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(198), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -4102,7 +4105,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4142,7 +4145,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(206), 1,
       sym_number_literal,
     ACTIONS(208), 1,
@@ -4183,7 +4186,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4223,7 +4226,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(206), 1,
       sym_number_literal,
     ACTIONS(232), 1,
@@ -4264,7 +4267,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4304,7 +4307,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(200), 1,
       anon_sym_RBRACE,
     ACTIONS(206), 1,
@@ -4345,7 +4348,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4385,7 +4388,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(206), 1,
       sym_number_literal,
     ACTIONS(234), 1,
@@ -4426,7 +4429,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4464,7 +4467,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(277), 1,
       anon_sym_await,
     ACTIONS(280), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(283), 1,
       sym_number_literal,
     ACTIONS(286), 1,
@@ -4507,7 +4510,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -4541,7 +4544,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4600,7 +4603,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4659,7 +4662,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4718,7 +4721,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4777,7 +4780,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4836,7 +4839,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4895,7 +4898,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -4954,7 +4957,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5013,7 +5016,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5072,7 +5075,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5131,7 +5134,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5190,7 +5193,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5249,7 +5252,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5308,7 +5311,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5367,7 +5370,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5426,7 +5429,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5485,7 +5488,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5544,7 +5547,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5603,7 +5606,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5664,7 +5667,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5722,7 +5725,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5781,7 +5784,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5841,7 +5844,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5900,7 +5903,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -5959,7 +5962,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6019,7 +6022,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6079,7 +6082,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6139,7 +6142,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6198,7 +6201,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6257,7 +6260,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6316,7 +6319,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6375,7 +6378,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6434,7 +6437,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6493,7 +6496,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6552,7 +6555,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6611,7 +6614,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6670,7 +6673,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6729,7 +6732,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6788,7 +6791,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6847,7 +6850,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6906,7 +6909,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -6965,7 +6968,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7024,7 +7027,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7084,7 +7087,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7151,7 +7154,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7205,7 +7208,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7263,7 +7266,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7369,7 +7372,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7439,7 +7442,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7507,7 +7510,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7539,7 +7542,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7609,7 +7612,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7669,7 +7672,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7764,7 +7767,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7833,7 +7836,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7904,7 +7907,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -7942,7 +7945,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8012,7 +8015,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8098,7 +8101,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8134,7 +8137,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8205,7 +8208,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8296,7 +8299,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8368,7 +8371,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8398,7 +8401,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8437,7 +8440,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8473,7 +8476,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8512,7 +8515,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8548,7 +8551,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8587,7 +8590,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8623,7 +8626,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8662,7 +8665,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8698,7 +8701,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8737,7 +8740,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8765,7 +8768,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(119), 1,
       anon_sym_SQUOTE,
     ACTIONS(126), 1,
@@ -8816,7 +8819,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_while_expression,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_interpolation,
       sym_set_literal,
       sym_ordered_dict_literal,
@@ -8845,7 +8848,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -8884,7 +8887,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -8960,7 +8963,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -8990,7 +8993,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9027,7 +9030,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9063,7 +9066,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9100,7 +9103,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9136,7 +9139,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9173,7 +9176,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9209,7 +9212,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9246,7 +9249,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9282,7 +9285,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9319,7 +9322,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9395,7 +9398,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -9425,7 +9428,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9462,7 +9465,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9498,7 +9501,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9535,7 +9538,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9571,7 +9574,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -9608,7 +9611,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9684,7 +9687,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -9718,7 +9721,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(617), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -9749,7 +9752,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9787,7 +9790,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(623), 1,
@@ -9820,7 +9823,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9860,7 +9863,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(627), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -9891,7 +9894,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -9931,7 +9934,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(631), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -9962,7 +9965,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10002,7 +10005,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(635), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -10033,7 +10036,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10073,7 +10076,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(639), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -10104,7 +10107,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10144,7 +10147,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(643), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -10175,7 +10178,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10213,7 +10216,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(647), 1,
@@ -10246,7 +10249,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10284,7 +10287,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(627), 1,
@@ -10317,7 +10320,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10353,7 +10356,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10388,7 +10391,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10424,7 +10427,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10459,7 +10462,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10495,7 +10498,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10530,7 +10533,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10568,7 +10571,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(661), 1,
       sym_identifier,
     ACTIONS(665), 1,
@@ -10601,7 +10604,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10641,7 +10644,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(627), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -10672,7 +10675,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10708,7 +10711,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10743,7 +10746,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10779,7 +10782,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10814,7 +10817,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10852,7 +10855,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(665), 1,
       sym_number_literal,
     ACTIONS(675), 1,
@@ -10885,7 +10888,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10921,7 +10924,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -10956,7 +10959,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -10994,7 +10997,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(683), 1,
@@ -11027,7 +11030,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11067,7 +11070,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(687), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -11098,7 +11101,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11134,7 +11137,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -11169,7 +11172,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11209,7 +11212,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(691), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -11240,7 +11243,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11276,7 +11279,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -11311,7 +11314,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11347,7 +11350,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -11382,7 +11385,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11418,7 +11421,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -11453,7 +11456,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11491,7 +11494,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(673), 1,
@@ -11524,7 +11527,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11560,7 +11563,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -11595,7 +11598,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11635,7 +11638,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(707), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -11666,7 +11669,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11704,7 +11707,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(699), 1,
@@ -11737,7 +11740,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11777,7 +11780,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(711), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -11808,7 +11811,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11848,7 +11851,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(673), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -11879,7 +11882,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11919,7 +11922,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(699), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -11950,7 +11953,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -11986,7 +11989,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -12021,7 +12024,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12061,7 +12064,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(673), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12092,7 +12095,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12132,7 +12135,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(699), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12163,7 +12166,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12203,7 +12206,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(719), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12234,7 +12237,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12274,7 +12277,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(723), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12305,7 +12308,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12341,7 +12344,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -12376,7 +12379,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12416,7 +12419,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(665), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12447,7 +12450,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12487,7 +12490,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(731), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12518,7 +12521,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12554,7 +12557,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -12589,7 +12592,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12629,7 +12632,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(647), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12660,7 +12663,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12700,7 +12703,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(739), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12731,7 +12734,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12771,7 +12774,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(743), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12802,7 +12805,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12838,7 +12841,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -12873,7 +12876,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12913,7 +12916,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(751), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -12944,7 +12947,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -12972,7 +12975,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(119), 1,
       anon_sym_SQUOTE,
     ACTIONS(126), 1,
@@ -13021,7 +13024,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_while_expression,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_interpolation,
       sym_set_literal,
       sym_ordered_dict_literal,
@@ -13056,7 +13059,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(761), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -13087,7 +13090,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13127,7 +13130,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(765), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13158,7 +13161,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13198,7 +13201,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(769), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13229,7 +13232,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13269,7 +13272,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(773), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -13300,7 +13303,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13340,7 +13343,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(777), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13371,7 +13374,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13409,7 +13412,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(781), 1,
@@ -13442,7 +13445,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13482,7 +13485,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(785), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13513,7 +13516,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13553,7 +13556,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(647), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13584,7 +13587,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13624,7 +13627,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(789), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13655,7 +13658,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13695,7 +13698,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(793), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13726,7 +13729,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13766,7 +13769,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(797), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13797,7 +13800,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13837,7 +13840,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(801), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13868,7 +13871,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13908,7 +13911,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(805), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -13939,7 +13942,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -13979,7 +13982,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(809), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -14010,7 +14013,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14050,7 +14053,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(813), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -14081,7 +14084,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14121,7 +14124,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(817), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -14152,7 +14155,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14192,7 +14195,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(821), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -14223,7 +14226,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14261,7 +14264,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(825), 1,
@@ -14294,7 +14297,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14332,7 +14335,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(829), 1,
@@ -14365,7 +14368,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14403,7 +14406,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(833), 1,
@@ -14436,7 +14439,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14474,7 +14477,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(837), 1,
@@ -14507,7 +14510,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14545,7 +14548,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(841), 1,
@@ -14578,7 +14581,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14616,7 +14619,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(845), 1,
@@ -14649,7 +14652,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14689,7 +14692,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(849), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -14720,7 +14723,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14756,7 +14759,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -14791,7 +14794,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14827,7 +14830,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -14862,7 +14865,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14898,7 +14901,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -14933,7 +14936,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -14969,7 +14972,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -15004,7 +15007,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15040,7 +15043,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -15075,7 +15078,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15111,7 +15114,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(111), 1,
       anon_sym_await,
     ACTIONS(113), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(117), 1,
       anon_sym_DQUOTE,
     ACTIONS(119), 1,
@@ -15146,7 +15149,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15184,7 +15187,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(873), 1,
@@ -15217,7 +15220,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15257,7 +15260,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(877), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -15288,7 +15291,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15328,7 +15331,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(168), 1,
       anon_sym_await,
     ACTIONS(170), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(881), 1,
       sym_number_literal,
     STATE(192), 1,
@@ -15359,7 +15362,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15397,7 +15400,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(885), 1,
@@ -15430,7 +15433,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15468,7 +15471,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(889), 1,
@@ -15501,7 +15504,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15539,7 +15542,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(145), 1,
       anon_sym_await,
     ACTIONS(147), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(619), 1,
       sym_identifier,
     ACTIONS(893), 1,
@@ -15572,7 +15575,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -15612,7 +15615,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(194), 1,
       anon_sym_await,
     ACTIONS(196), 1,
-      anon_sym_go,
+      anon_sym_async,
     ACTIONS(897), 1,
       sym_number_literal,
     STATE(11), 1,
@@ -15643,7 +15646,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_block,
       sym_return_expression,
       sym_await_expression,
-      sym_go_expression,
+      sym_async_expression,
       sym_string_literal,
       sym_string_interpolation,
       sym_char_literal,
@@ -17135,7 +17138,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17170,7 +17173,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17224,7 +17227,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17243,7 +17246,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17328,7 +17331,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17363,7 +17366,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17417,7 +17420,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17436,7 +17439,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -17521,7 +17524,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18105,7 +18108,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18189,7 +18192,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18223,7 +18226,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18257,7 +18260,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18277,7 +18280,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18329,7 +18332,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18367,7 +18370,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18401,7 +18404,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18435,7 +18438,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18469,7 +18472,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -18793,7 +18796,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -19264,7 +19267,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -19836,7 +19839,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -19864,7 +19867,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -19892,7 +19895,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -19920,7 +19923,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_break_expression,
       sym_continue_expression,
       anon_sym_await,
-      anon_sym_go,
+      anon_sym_async,
       anon_sym_true,
       anon_sym_false,
       sym_identifier,
@@ -24063,8 +24066,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [395] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_string_literal, 3, 0, 0),
   [397] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_await_expression, 2, 0, 0),
   [399] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_await_expression, 2, 0, 0),
-  [401] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_go_expression, 2, 0, 0),
-  [403] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_go_expression, 2, 0, 0),
+  [401] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_async_expression, 2, 0, 0),
+  [403] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_async_expression, 2, 0, 0),
   [405] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_binary_expression, 3, 0, 0),
   [407] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_binary_expression, 3, 0, 0),
   [409] = {.entry = {.count = 2, .reusable = false}}, REDUCE(sym_string_literal, 2, 0, 0), REDUCE(sym_string_interpolation, 2, 0, 0),

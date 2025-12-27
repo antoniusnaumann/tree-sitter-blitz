@@ -80,8 +80,8 @@ fn main() {
 	let downloader = Downloader()
 	// all variables are always initialized with their respective zero value
 	let images [Image~] = for 1..5 |i| {
-		// by default, actor methods block. To continue execution without waiting for the result, use the `go` keyword
-		go downloader.load("cats.lol/\(i)")
+		// by default, actor methods block. To continue execution without waiting for the result, use the `async` keyword
+		async downloader.load("cats.lol/\(i)")
 	}
 
 	while images.some_loading() {

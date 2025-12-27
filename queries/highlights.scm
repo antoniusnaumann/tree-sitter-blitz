@@ -85,7 +85,7 @@
 ] @keyword
 
 "await" @keyword.control
-"go" @keyword.control
+"async" @keyword.control
 
 ; Keywords - storage/modifiers
 ; Note: 'let' declares immutable variables, 'mut' declares mutable variables
@@ -139,6 +139,21 @@
 
 (member_expression
   property: (identifier) @variable.other.member)
+
+; Special case: .mut in member expressions (for UFCS mutable borrowing)
+(member_expression
+  property: (identifier) @keyword.storage.modifier
+  (#eq? @keyword.storage.modifier "mut"))
+
+; Special case: UFCS forms of control flow keywords
+; .await, .async, .return can be used in member expressions
+(member_expression
+  property: (identifier) @keyword.control
+  (#match? @keyword.control "^(await|async)$"))
+
+(member_expression
+  property: (identifier) @keyword.control.return
+  (#eq? @keyword.control.return "return"))
 
 ; Parameters - more specific than generic variables
 (parameter

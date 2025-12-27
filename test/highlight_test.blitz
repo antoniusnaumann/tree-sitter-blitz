@@ -319,7 +319,7 @@ fn async_operations() {
 	let img1 = downloader.load("url1")
 	
 	// Non-blocking call
-	let img2 = go downloader.load("url2")
+	let img2 = async downloader.load("url2")
 	
 	// Await future
 	let result = await img2

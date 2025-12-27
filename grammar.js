@@ -238,7 +238,7 @@ module.exports = grammar({
       $.break_expression,
       $.continue_expression,
       $.await_expression,
-      $.go_expression,
+      $.async_expression,
       $.string_interpolation,
     ),
 
@@ -434,8 +434,8 @@ module.exports = grammar({
       $._expression,
     )),
 
-    go_expression: $ => prec.right(14, seq(
-      'go',
+    async_expression: $ => prec.right(14, seq(
+      'async',
       $._expression,
     )),
 
