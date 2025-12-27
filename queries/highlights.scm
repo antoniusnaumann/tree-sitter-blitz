@@ -158,6 +158,15 @@
   pattern: (identifier) @constant)
 
 (switch_case
+  pattern: (char_literal) @constant.character)
+
+(switch_case
+  pattern: (string_literal) @string)
+
+(switch_case
+  pattern: (number_literal) @constant.numeric.integer)
+
+(switch_case
   pattern: "_" @constant.builtin)
 
 ; Union case labels - constants

@@ -2145,6 +2145,18 @@
                 "name": "identifier"
               },
               {
+                "type": "SYMBOL",
+                "name": "char_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "string_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "number_literal"
+              },
+              {
                 "type": "STRING",
                 "value": "_"
               }
@@ -2180,8 +2192,73 @@
           "type": "FIELD",
           "name": "body",
           "content": {
-            "type": "SYMBOL",
-            "name": "block"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "number_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "string_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "char_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "boolean_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "list_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "dict_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "call_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "member_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "binary_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "unary_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "if_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "switch_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "parenthesized_expression"
+              }
+            ]
           }
         }
       ]
@@ -2790,6 +2867,10 @@
     ],
     [
       "for_expression",
+      "_expression"
+    ],
+    [
+      "switch_case",
       "_expression"
     ]
   ],

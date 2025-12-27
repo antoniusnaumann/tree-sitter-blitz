@@ -18,6 +18,7 @@ module.exports = grammar({
     [$.return_expression, $.range_literal],
     [$.string_literal, $.string_interpolation],
     [$.for_expression, $._expression],
+    [$.switch_case, $._expression],
   ],
 
   rules: {
@@ -385,10 +386,32 @@ module.exports = grammar({
       field('pattern', choice(
         $.type_identifier,
         $.identifier,
+        $.char_literal,
+        $.string_literal,
+        $.number_literal,
         '_',
       )),
       optional(seq('as', field('binding', $.identifier))),
-      field('body', $.block),
+      // Body can be a block or a non-block expression
+      // This avoids the ambiguity between blocks and set literals
+      field('body', choice(
+        $.block,
+        $.identifier,
+        $.type_identifier,
+        $.number_literal,
+        $.string_literal,
+        $.char_literal,
+        $.boolean_literal,
+        $.list_literal,
+        $.dict_literal,
+        $.call_expression,
+        $.member_expression,
+        $.binary_expression,
+        $.unary_expression,
+        $.if_expression,
+        $.switch_expression,
+        $.parenthesized_expression,
+      )),
     ),
 
     block: $ => seq(

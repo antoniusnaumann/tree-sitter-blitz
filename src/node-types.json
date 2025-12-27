@@ -3459,7 +3459,67 @@
         "required": true,
         "types": [
           {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
             "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "dict_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "list_literal",
+            "named": true
+          },
+          {
+            "type": "member_expression",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
             "named": true
           }
         ]
@@ -3473,7 +3533,19 @@
             "named": false
           },
           {
+            "type": "char_literal",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "string_literal",
             "named": true
           },
           {
