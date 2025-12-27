@@ -1,0 +1,376 @@
+// Comments should be highlighted
+// Testing all language features for highlighting
+
+// ===== FUNCTION DEFINITIONS =====
+fn simple_function() {
+	print("Hello")
+}
+
+fn with_params(x Int, y Float) String {
+	"result"
+}
+
+fn with_return() Int {
+	return 42
+}
+
+pub fn public_function() {
+	// Public function
+}
+
+// ===== STRUCTS =====
+struct Point {
+	x Int
+	y Int
+}
+
+struct GenericPair(T, U) {
+	first T
+	second U
+}
+
+// ===== UNIONS =====
+union Option(T) {
+	none
+	some: T
+}
+
+union Result(T, E) {
+	T
+	E
+}
+
+// ===== ACTORS =====
+actor Counter {
+	count Int
+	
+	fn increment(self) {
+		self.count += 1
+	}
+	
+	fn get(self) Int {
+		self.count
+	}
+}
+
+// ===== TYPE ALIASES =====
+alias IntList = [Int]
+alias StringDict = {String: String}
+
+// ===== VARIABLES AND DECLARATIONS =====
+fn declarations() {
+	let x = 5
+	let mut y = 10
+	let z: Int = 15
+	let name: String = "Alice"
+}
+
+// ===== ARITHMETIC OPERATORS =====
+fn arithmetic(a Int, b Int) Int {
+	let add = a + b
+	let sub = a - b
+	let mul = a * b
+	let div = a / b
+	let rem = a % b
+	let neg = -a
+	
+	add + sub * mul / div % rem
+}
+
+// ===== COMPOUND ASSIGNMENTS =====
+fn compound_assignments() {
+	let mut x = 10
+	x += 5
+	x -= 3
+	x *= 2
+	x /= 4
+	x %= 3
+	
+	let mut str = "hello"
+	str ++= " world"
+}
+
+// ===== BITWISE OPERATORS =====
+fn bitwise_ops(a Int, b Int) {
+	// Binary bitwise
+	let and_result = a & b
+	let or_result = a | b
+	let xor_result = a ^ b
+	let left_shift = a << 2
+	let right_shift = a >> 2
+	
+	// Unary bitwise
+	let not_result = ~a
+	
+	// Bitwise assignments
+	let mut x = 10
+	x &= 5
+	x |= 3
+	x ^= 7
+	x <<= 2
+	x >>= 1
+}
+
+// ===== COMPARISON OPERATORS =====
+fn comparisons(a Int, b Int) Bool {
+	let eq = a == b
+	let ne = a != b
+	let gt = a > b
+	let ge = a >= b
+	let lt = a < b
+	let le = a <= b
+	
+	eq and ne or gt
+}
+
+// ===== LOGICAL OPERATORS =====
+fn logical(x Bool, y Bool) Bool {
+	let and_op = x and y
+	let or_op = x or y
+	let not_op = !x
+	let not_keyword = not y
+	
+	and_op or or_op
+}
+
+// ===== LITERALS =====
+fn literals() {
+	// Numbers
+	let int_lit = 42
+	let float_lit = 3.14
+	
+	// Strings
+	let str_lit = "hello world"
+	let char_lit = 'a'
+	
+	// Booleans
+	let true_lit = true
+	let false_lit = false
+	
+	// Lists
+	let list = [1, 2, 3, 4, 5]
+	let empty_list = []
+	
+	// Sets
+	let set = {"a", "b", "c"}
+	
+	// Dicts
+	let dict = {"key": "value", "foo": "bar"}
+	
+	// Ordered dicts
+	let ordered = ["first": 1, "second": 2]
+	
+	// Ranges
+	let inclusive = 1..=10
+	let exclusive = 1..<10
+	let relative = 1..+9
+	let tolerance = 5+-2
+}
+
+// ===== STRING INTERPOLATION =====
+fn interpolation(name String, age Int) String {
+	"Hello \(name), you are \(age) years old"
+}
+
+// ===== TYPES =====
+fn type_examples() {
+	// Basic types
+	let i: Int = 5
+	let f: Float = 3.14
+	let b: Bool = true
+	let s: String = "text"
+	
+	// Optional types
+	let opt: Int? = 5
+	
+	// Result types
+	let res: String!Int = "error"
+	let res2: Int! = 42
+	
+	// Future types
+	let fut: Int~ = async_call()
+	
+	// List types
+	let list: [Int] = [1, 2, 3]
+	
+	// Set types
+	let set: {String} = {"a"}
+	
+	// Dict types
+	let dict: {String: Int} = {"key": 1}
+	
+	// Ordered dict types
+	let ordered: [String: Float] = ["pi": 3.14]
+	
+	// Function types
+	let func: |Int| String = to_string
+	let func2: |Int, Int| Int = add
+}
+
+// ===== CONTROL FLOW =====
+fn if_statements(x Int) String {
+	if x > 0 {
+		"positive"
+	} else if x < 0 {
+		"negative"
+	} else {
+		"zero"
+	}
+}
+
+fn for_loops() {
+	// Basic for loop
+	for 1..=10 |i| {
+		print(i)
+	}
+	
+	// For with list
+	let items = [1, 2, 3]
+	for items |item| {
+		print(item)
+	}
+	
+	// For with break and continue
+	for 1..=100 |n| {
+		if n % 2 == 0 { continue }
+		if n > 50 { break }
+		print(n)
+	}
+}
+
+fn while_loops() {
+	let mut i = 0
+	while i < 10 {
+		print(i)
+		i += 1
+	}
+}
+
+fn switch_statements(opt Option(Int)) Int {
+	switch opt {
+		none {
+			0
+		}
+		some as value {
+			value
+		}
+		_ {
+			-1
+		}
+	}
+}
+
+// ===== MEMBER ACCESS =====
+fn member_access() {
+	let point = Point(x: 5, y: 10)
+	let x_val = point.x
+	let y_val = point.y
+}
+
+// ===== FUNCTION CALLS =====
+fn function_calls() {
+	// Regular call
+	simple_function()
+	
+	// With arguments
+	with_params(5, 3.14)
+	
+	// Method-style (UFCS)
+	let x = 5
+	x.double()
+	
+	// Chained calls
+	x.double().triple().print()
+}
+
+// ===== CONSTRUCTORS =====
+fn constructors() {
+	// Named constructor
+	let p1 = Point(x: 5, y: 10)
+	
+	// Inferred constructor
+	let p2 = (x: 3, y: 7)
+	
+	// Generic constructor
+	let opt = Option(some: 42)
+}
+
+// ===== BLOCKS AND EXPRESSIONS =====
+fn blocks() {
+	let result = {
+		let temp = 5
+		temp * 2
+	}
+	
+	let nested = {
+		let outer = 10
+		{
+			let inner = 20
+			outer + inner
+		}
+	}
+}
+
+// ===== ASYNC/CONCURRENCY =====
+fn async_operations() {
+	let downloader = Downloader()
+	
+	// Blocking call
+	let img1 = downloader.load("url1")
+	
+	// Non-blocking call
+	let img2 = go downloader.load("url2")
+	
+	// Await future
+	let result = await img2
+}
+
+// ===== TEST DEFINITIONS =====
+test "basic arithmetic" {
+	let x = 2 + 2
+	assert x == 4
+}
+
+test "string operations" {
+	let s = "hello" ++ " world"
+	assert s == "hello world"
+}
+
+// ===== ELSE OPERATOR =====
+fn else_operator(maybe Int?) Int {
+	let value = maybe else { 0 }
+	let nested = maybe.some() else { default() else { 0 } }
+	value
+}
+
+// ===== COMPLEX EXPRESSIONS =====
+fn complex_expr(a Int, b Int, c Int) {
+	// Operator precedence
+	let result = a + b * c / 2 - 1
+	
+	// Parentheses
+	let grouped = (a + b) * (c - 1)
+	
+	// Mixed operators
+	let mixed = a << 2 | b & 0xFF ^ c
+	
+	// Logical with comparison
+	let bool_expr = a > 0 and b < 100 or c == 0
+}
+
+// ===== GENERIC FUNCTIONS =====
+fn generic_swap(pair GenericPair(T, U)) GenericPair(U, T) {
+	GenericPair(first: pair.second, second: pair.first)
+}
+
+// ===== UNDERSCORE =====
+fn with_underscore() {
+	let _ = expensive_computation()
+}
+
+// ===== MAIN FUNCTION =====
+fn main() {
+	// Entry point
+	let msg = "Blitz Language"
+	print(msg)
+}
