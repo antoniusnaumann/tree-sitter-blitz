@@ -1,0 +1,155 @@
+// Highlighting Features Demo
+// This file demonstrates the new highlighting features
+
+// 1. GENERIC TYPE PARAMETERS (single uppercase letters highlighted as @type.parameter)
+struct Pair(T, U) {
+	first T
+	second U
+}
+
+union Result(T, E) {
+	ok: T
+	err: E
+}
+
+alias Optional(T) = T?
+
+// Generic functions (type parameters in the type name)
+fn identity(value T) T {
+	value
+}
+
+// 2. MUT KEYWORD in declarations and parameters
+fn test_declarations() {
+	// Immutable variable declared with 'let'
+	let x = 5
+	
+	// Mutable variables declared with 'mut'
+	mut y = 10
+	mut z: Int = 15
+	
+	// Mutable variables can be modified
+	y += 1
+	z = z * 2
+}
+
+// Mut in function parameters
+fn increment(mut count Int) Int {
+	count += 1
+	count
+}
+
+fn modify_pair(mut first Int, mut second Int) {
+	first = first * 2
+	second = second + 10
+}
+
+// 3. UNION LABELS as @constant
+union Status {
+	pending
+	running
+	completed
+	failed: String
+}
+
+union Option(T) {
+	none
+	some: T
+}
+
+union Either(L, R) {
+	left: L
+	right: R
+}
+
+// Using union labels in switch expressions
+fn handle_status(status Status) String {
+	switch status {
+		pending {
+			"Waiting to start"
+		}
+		running {
+			"Currently running"
+		}
+		completed {
+			"Finished"
+		}
+		failed as error {
+			"Failed: " ++ error
+		}
+		_ {
+			"Unknown"
+		}
+	}
+}
+
+// 4. PARAMETER HIGHLIGHTING in function bodies
+// Parameters are tracked through local scope analysis
+fn calculate(a Int, b Int, c Int) Int {
+	// Parameters a, b, c used in body are highlighted as @variable.parameter
+	let sum = a + b
+	let product = sum * c
+	return product
+}
+
+fn complex_calculation(x Float, y Float, z Float) Float {
+	// All parameter references maintain their parameter highlighting
+	let step1 = x * y
+	let step2 = step1 + z
+	let step3 = step2 / x
+	step3 - y + z
+}
+
+// Parameters work with mut keyword too
+fn accumulate(mut total Int, value Int, multiplier Int) Int {
+	// 'total' is highlighted as parameter even though it's mutable
+	total += value * multiplier
+	total
+}
+
+// Generic function with parameter tracking
+fn map(list [T], func |T| U) [U] {
+	// Parameters 'list' and 'func' are highlighted throughout the body
+	mut result = []
+	for list |item| {
+		result.append(func(item))
+	}
+	result
+}
+
+// 5. ALL FEATURES COMBINED
+union Response(T, E) {
+	success: T
+	error: E
+	pending
+	cancelled
+}
+
+fn process_request(mut state Int, request String, handler |String, Int| Response) Response {
+	// Parameters: state, request, handler (all highlighted as @variable.parameter)
+	// Type parameters in Response: T, E (highlighted as @type.parameter)
+	// Union labels: success, error, pending, cancelled (highlighted as @constant)
+
+	state += 1
+	let response = handler(request, state)
+
+	switch response {
+		success as value {
+			response
+		}
+		error as err {
+			response
+		}
+		pending {
+			response
+		}
+		cancelled {
+			response
+		}
+	}
+}
+
+fn main() {
+	let result = calculate(10, 20, 30)
+	print(result)
+}

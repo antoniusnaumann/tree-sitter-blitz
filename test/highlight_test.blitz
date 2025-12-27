@@ -60,7 +60,7 @@ alias StringDict = {String: String}
 // ===== VARIABLES AND DECLARATIONS =====
 fn declarations() {
 	let x = 5
-	let mut y = 10
+	mut y = 10
 	let z: Int = 15
 	let name: String = "Alice"
 }
@@ -79,14 +79,14 @@ fn arithmetic(a Int, b Int) Int {
 
 // ===== COMPOUND ASSIGNMENTS =====
 fn compound_assignments() {
-	let mut x = 10
+	mut x = 10
 	x += 5
 	x -= 3
 	x *= 2
 	x /= 4
 	x %= 3
 	
-	let mut str = "hello"
+	mut str = "hello"
 	str ++= " world"
 }
 
@@ -103,7 +103,7 @@ fn bitwise_ops(a Int, b Int) {
 	let not_result = ~a
 	
 	// Bitwise assignments
-	let mut x = 10
+	mut x = 10
 	x &= 5
 	x |= 3
 	x ^= 7
@@ -239,7 +239,7 @@ fn for_loops() {
 }
 
 fn while_loops() {
-	let mut i = 0
+	mut i = 0
 	while i < 10 {
 		print(i)
 		i += 1

@@ -58,6 +58,7 @@ module.exports = grammar({
     ),
 
     parameter: $ => seq(
+      optional('mut'),
       field('name', $.identifier),
       field('type', $.type),
     ),
@@ -198,8 +199,7 @@ module.exports = grammar({
     ),
 
     declaration: $ => seq(
-      'let',
-      optional('mut'),
+      choice('let', 'mut'),
       field('name', $.identifier),
       optional(seq(':', field('type', $.type))),
       optional(seq('=', field('value', $._expression))),
