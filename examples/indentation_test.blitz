@@ -1,0 +1,65 @@
+// Test file to verify indentation works correctly
+// Each nested block should indent by exactly one level
+
+fn example(x Int) {
+  // Inside function - indent level 1
+  let value = 10
+  
+  if x > 5 {
+    // Inside if - indent level 2 (not 3!)
+    print("condition met")
+    
+    if x > 10 {
+      // Inside nested if - indent level 3
+      print("nested condition")
+    }
+  } else {
+    // Inside else - indent level 2
+    print("condition not met")
+  }
+  
+  while x > 0 {
+    // Inside while - indent level 2
+    print("looping")
+  }
+  
+  for 1..10 |i| {
+    // Inside for - indent level 2
+    print(i)
+  }
+  
+  switch x {
+    1 {
+      // Inside case - indent level 2 (not 3 or 4!)
+      print("one")
+    }
+    2 {
+      print("two")
+    }
+    _ {
+      print("default")
+    }
+  }
+}
+
+struct Point {
+  // Inside struct - indent level 1
+  x Int
+  y Int
+}
+
+union Option(T) {
+  // Inside union - indent level 1
+  none
+  T
+}
+
+actor Counter {
+  // Inside actor - indent level 1
+  count Int
+  
+  fn increment(self) {
+    // Inside actor method - indent level 2
+    print("incrementing")
+  }
+}

@@ -35,8 +35,10 @@ fn double(arg Int) Int {
     parameters: (parameter_list
       (parameter
         name: (identifier)
-        type: (type_identifier)))
-    return_type: (type_identifier)
+        type: (type
+          (type_identifier))))
+    return_type: (type
+      (type_identifier))
     body: (block
       (expression_statement
         (binary_expression
@@ -57,16 +59,20 @@ struct Vec3 {
 
 (source_file
   (struct_definition
-    name: (type_identifier)
+    name: (type
+      (type_identifier))
     (field
       name: (identifier)
-      type: (type_identifier))
+      type: (type
+        (type_identifier)))
     (field
       name: (identifier)
-      type: (type_identifier))
+      type: (type
+        (type_identifier)))
     (field
       name: (identifier)
-      type: (type_identifier))))
+      type: (type
+        (type_identifier)))))
 
 ==================
 Union definition
@@ -81,9 +87,11 @@ union Option(T) {
 
 (source_file
   (union_definition
-    name: (generic_type
-      name: (type_identifier)
-      (type_identifier))
+    name: (type
+      (generic_type
+        name: (type_identifier)
+        (type
+          (type_identifier))))
     (union_case
       label: (identifier))
     (union_case
@@ -94,7 +102,7 @@ Variable declarations with compound assignments
 ==================
 
 fn test() {
-  let mut x = 5
+  mut x = 5
   x += 10
   x *= 2
   x ++= "suffix"
@@ -121,7 +129,7 @@ fn test() {
       (expression_statement
         (compound_assignment_expression
           left: (identifier)
-          right: (string_literal))))))
+          right: (string_interpolation))))))
 
 ==================
 Bitwise operations
@@ -144,11 +152,14 @@ fn bitwise(a Int, b Int) Int {
     parameters: (parameter_list
       (parameter
         name: (identifier)
-        type: (type_identifier))
+        type: (type
+          (type_identifier)))
       (parameter
         name: (identifier)
-        type: (type_identifier)))
-    return_type: (type_identifier)
+        type: (type
+          (type_identifier))))
+    return_type: (type
+      (type_identifier))
     body: (block
       (declaration
         name: (identifier)
@@ -185,7 +196,7 @@ Bitwise compound assignments
 ==================
 
 fn test() {
-  let mut x = 10
+  mut x = 10
   x &= 5
   x |= 3
   x ^= 7
@@ -244,21 +255,24 @@ fn check(n Int) String {
     parameters: (parameter_list
       (parameter
         name: (identifier)
-        type: (type_identifier)))
-    return_type: (type_identifier)
+        type: (type
+          (type_identifier))))
+    return_type: (type
+      (type_identifier))
     body: (block
-      (if_expression
-        condition: (binary_expression
-          (binary_expression
-            (identifier)
+      (expression_statement
+        (if_expression
+          condition: (binary_expression
+            (binary_expression
+              (identifier)
+              (number_literal))
             (number_literal))
-          (number_literal))
-        consequence: (block
-          (expression_statement
-            (string_literal)))
-        alternative: (block
-          (expression_statement
-            (string_literal))))))))
+          consequence: (block
+            (expression_statement
+              (string_interpolation)))
+          alternative: (block
+            (expression_statement
+              (string_interpolation))))))))
 
 ==================
 For loop
@@ -277,16 +291,18 @@ fn loop() {
     name: (identifier)
     parameters: (parameter_list)
     body: (block
-      (for_expression
-        iterable: (range_literal
-          (number_literal)
-          (number_literal))
-        element: (identifier)
-        body: (block
-          (call_expression
-            function: (identifier)
-            arguments: (argument_list
-              (identifier))))))))
+      (expression_statement
+        (for_expression
+          iterable: (range_literal
+            (number_literal)
+            (number_literal))
+          element: (identifier)
+          body: (block
+            (expression_statement
+              (call_expression
+                function: (identifier)
+                arguments: (argument_list
+                  (identifier))))))))))
 
 ==================
 Actor definition
@@ -304,20 +320,21 @@ actor Counter {
 
 (source_file
   (actor_definition
-    name: (type_identifier)
+    name: (type
+      (type_identifier))
     (field
       name: (identifier)
-      type: (type_identifier))
+      type: (type
+        (type_identifier)))
     (function_definition
       name: (identifier)
       parameters: (parameter_list
         (parameter
-          name: (identifier)
-          type: (type_identifier)))
+          name: (identifier)))
       body: (block
-        (compound_assignment_expression
-          left: (member_expression
-            object: (identifier)
-            property: (identifier))
-          operator: (string)
-          right: (number_literal))))))
+        (expression_statement
+          (compound_assignment_expression
+            left: (member_expression
+              object: (identifier)
+              property: (identifier))
+            right: (number_literal)))))))

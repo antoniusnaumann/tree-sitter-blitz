@@ -61,7 +61,7 @@ module.exports = grammar({
     parameter: $ => seq(
       optional('mut'),
       field('name', $.identifier),
-      field('type', $.type),
+      optional(field('type', $.type)),
     ),
 
     struct_definition: $ => seq(

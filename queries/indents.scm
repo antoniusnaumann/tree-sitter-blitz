@@ -1,15 +1,10 @@
 ; Indents
+; Only indent for structures that have their own braces without nested block nodes
 [
-  (function_definition)
   (struct_definition)
   (union_definition)
   (actor_definition)
   (block)
-  (if_expression)
-  (for_expression)
-  (while_expression)
-  (switch_expression)
-  (switch_case)
 ] @indent
 
 ; Dedents

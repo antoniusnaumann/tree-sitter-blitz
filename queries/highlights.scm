@@ -87,6 +87,12 @@
 "await" @keyword.control
 "async" @keyword.control
 
+; Keyword operators (short-circuiting logical operators)
+[
+  "and"
+  "or"
+] @keyword.operator
+
 ; Keywords - storage/modifiers
 ; Note: 'let' declares immutable variables, 'mut' declares mutable variables
 [
