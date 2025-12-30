@@ -338,3 +338,32 @@ actor Counter {
               object: (identifier)
               property: (identifier))
             right: (number_literal)))))))
+
+==================
+Assert expressions
+==================
+
+fn test() {
+  assert x > 0
+  (x > 0).assert
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (assert_expression
+          (binary_expression
+            (identifier)
+            (number_literal))))
+      (expression_statement
+        (member_expression
+          object: (parenthesized_expression
+            (binary_expression
+              (identifier)
+              (number_literal)))
+          property: (identifier))))))

@@ -151,3 +151,16 @@ test "Intrinsic types for control flow" {
 test "" {
 	let d Int!String = 5
 }
+
+// Assert expressions
+fn test_asserts() {
+  // Prefix form - assert takes the entire expression
+  assert x > 0
+  assert a == b
+  assert items.length() > 0
+  
+  // Postfix/UFCS form - expression.assert
+  (x > 0).assert
+  (a == b).assert
+  items.is_empty().assert
+}

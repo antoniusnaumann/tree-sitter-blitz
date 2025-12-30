@@ -239,6 +239,7 @@ module.exports = grammar({
       $.continue_expression,
       $.await_expression,
       $.async_expression,
+      $.assert_expression,
       $.string_interpolation,
     ),
 
@@ -436,6 +437,11 @@ module.exports = grammar({
 
     async_expression: $ => prec.right(14, seq(
       'async',
+      $._expression,
+    )),
+
+    assert_expression: $ => prec.right(2, seq(
+      'assert',
       $._expression,
     )),
 

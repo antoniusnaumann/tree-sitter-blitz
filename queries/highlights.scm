@@ -78,6 +78,7 @@
 (break_expression) @keyword.control
 (continue_expression) @keyword.control
 (return_expression "return" @keyword.control.return)
+(assert_expression "assert" @keyword.control)
 
 ; Keywords - other
 [
@@ -86,6 +87,7 @@
 
 "await" @keyword.control
 "async" @keyword.control
+"assert" @keyword.control
 
 ; Keyword operators (short-circuiting logical operators)
 [
@@ -152,10 +154,10 @@
   (#eq? @keyword.storage.modifier "mut"))
 
 ; Special case: UFCS forms of control flow keywords
-; .await, .async, .return can be used in member expressions
+; .await, .async, .assert, .return can be used in member expressions
 (member_expression
   property: (identifier) @keyword.control
-  (#match? @keyword.control "^(await|async)$"))
+  (#match? @keyword.control "^(await|async|assert)$"))
 
 (member_expression
   property: (identifier) @keyword.control.return
