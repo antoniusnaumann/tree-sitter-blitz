@@ -1,10 +1,9 @@
 ; Indents
-; Only indent for structures that have their own braces without nested block nodes
+; Indent after opening braces, brackets, and parentheses
 [
-  (struct_definition)
-  (union_definition)
-  (actor_definition)
-  (block)
+  "{"
+  "["
+  "("
 ] @indent
 
 ; Dedents
