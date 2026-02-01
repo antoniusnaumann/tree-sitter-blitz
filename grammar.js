@@ -60,7 +60,7 @@ module.exports = grammar({
     ),
 
     parameter: $ => seq(
-      optional('mut'),
+      optional(choice('mut', 'move')),
       field('name', $.identifier),
       optional(field('type', $.type)),
     ),
@@ -226,6 +226,7 @@ module.exports = grammar({
       $.call_expression,
       $.constructor_expression,
       $.labeled_expression,
+      $.move_expression,
       $.member_expression,
       $.binary_expression,
       $.unary_expression,
@@ -306,6 +307,11 @@ module.exports = grammar({
       field('label', $.identifier),
       ':',
       field('value', $._expression),
+    )),
+
+    move_expression: $ => prec.right(14, seq(
+      'move',
+      $._expression,
     )),
 
     member_expression: $ => prec.left(16, seq(

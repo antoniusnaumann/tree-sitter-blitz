@@ -1,0 +1,5 @@
+fn test(move f File, mut x Int) {
+  foo(move file)
+  file.move.foo()
+  foo(file.move)
+}

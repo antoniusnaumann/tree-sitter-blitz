@@ -178,8 +178,17 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "mut"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "mut"
+                },
+                {
+                  "type": "STRING",
+                  "value": "move"
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -1063,6 +1072,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "move_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "member_expression"
         },
         {
@@ -1424,6 +1437,23 @@
               "type": "SYMBOL",
               "name": "_expression"
             }
+          }
+        ]
+      }
+    },
+    "move_expression": {
+      "type": "PREC_RIGHT",
+      "value": 14,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "move"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
           }
         ]
       }

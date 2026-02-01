@@ -79,6 +79,7 @@
 (continue_expression) @keyword.control.return
 (return_expression "return" @keyword.control.return)
 (assert_expression "assert" @keyword.control)
+(move_expression "move" @keyword.storage.modifier)
 
 ; Keywords - other
 [
@@ -102,8 +103,8 @@
   "mut"
 ] @keyword.storage.modifier
 
-; Mut keyword in function parameters (separate from declarations)
-(parameter "mut" @keyword.storage.modifier)
+; Mut and Move keyword in function parameters (separate from declarations)
+(parameter ["mut" "move"] @keyword.storage.modifier)
 
 ; Keywords - definition/type
 [
@@ -156,10 +157,10 @@
 (member_expression
   property: (identifier) @variable.other.member)
 
-; Special case: .mut in member expressions (for UFCS mutable borrowing)
+; Special case: .mut and .move in member expressions (for UFCS mutable borrowing/move)
 (member_expression
   property: (identifier) @keyword.storage.modifier
-  (#eq? @keyword.storage.modifier "mut"))
+  (#match? @keyword.storage.modifier "^(mut|move)$"))
 
 ; Special case: UFCS forms of control flow keywords
 ; .await, .async, .assert, .return can be used in member expressions
