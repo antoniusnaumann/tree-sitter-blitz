@@ -31,7 +31,6 @@
   "%="
   "++="
   "&"
-  "|"
   "^"
   "~"
   "<<"
@@ -60,6 +59,7 @@
   "]"
   "{"
   "}"
+  "|"
 ] @punctuation.bracket
 
 ; Keywords - control flow
@@ -75,8 +75,8 @@
 ] @keyword.control.conditional
 
 ; Expression keywords
-(break_expression) @keyword.control
-(continue_expression) @keyword.control
+(break_expression) @keyword.control.return
+(continue_expression) @keyword.control.return
 (return_expression "return" @keyword.control.return)
 (assert_expression "assert" @keyword.control)
 
@@ -136,6 +136,10 @@
   type: (type) @type)
 
 ; Variables - generic, will be overridden by more specific rules
+; Special case: lowercase symbolic constants (like 'none' from Option type)
+(identifier) @constant.builtin
+  (#eq? @constant.builtin "none")
+
 (identifier) @variable.other
 
 ; Fields - more specific than generic variables
@@ -144,6 +148,10 @@
 
 (constructor_field
   name: (identifier) @variable.other.member)
+
+; Labeled expressions (union variant constructors like "block: expr", "number: expr")
+(labeled_expression
+  label: (identifier) @constant)
 
 (member_expression
   property: (identifier) @variable.other.member)

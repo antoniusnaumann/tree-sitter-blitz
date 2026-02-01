@@ -19,6 +19,7 @@ module.exports = grammar({
     [$.string_literal, $.string_interpolation],
     [$.for_expression, $._expression],
     [$.switch_case, $._expression],
+    [$.labeled_expression, $.constructor_field],
   ],
 
   rules: {
@@ -224,6 +225,7 @@ module.exports = grammar({
       $.parenthesized_expression,
       $.call_expression,
       $.constructor_expression,
+      $.labeled_expression,
       $.member_expression,
       $.binary_expression,
       $.unary_expression,
@@ -264,22 +266,47 @@ module.exports = grammar({
       ')',
     ),
 
-    constructor_expression: $ => prec(1, seq(
-      optional(field('type', $.type_identifier)),
-      '(',
+    constructor_expression: $ => prec(1, choice(
+      // Named field constructor
       seq(
-        $.constructor_field,
-        repeat(seq(',', $.constructor_field)),
-        optional(','),
+        optional(field('type', $.type_identifier)),
+        '(',
+        optional(seq(
+          $.constructor_field,
+          repeat(seq(',', $.constructor_field)),
+          optional(','),
+        )),
+        ')',
       ),
-      ')',
+      // Single positional argument constructor (for union variants)
+      seq(
+        field('type', $.type_identifier),
+        '(',
+        field('argument', $._expression),
+        ')',
+      ),
     )),
 
-    constructor_field: $ => seq(
-      field('name', $.identifier),
+    constructor_field: $ => choice(
+      // Full form: name: value
+      seq(
+        field('name', $.identifier),
+        ':',
+        field('value', $._expression),
+      ),
+      // Shorthand form (field punning): name:
+      seq(
+        field('name', $.identifier),
+        ':',
+      ),
+    ),
+
+    // Labeled expression for union variant construction (e.g., "block: expr", "number: expr")
+    labeled_expression: $ => prec(1, seq(
+      field('label', $.identifier),
       ':',
       field('value', $._expression),
-    ),
+    )),
 
     member_expression: $ => prec.left(16, seq(
       field('object', $._expression),
@@ -393,25 +420,10 @@ module.exports = grammar({
         '_',
       )),
       optional(seq('as', field('binding', $.identifier))),
-      // Body can be a block or a non-block expression
-      // This avoids the ambiguity between blocks and set literals
+      // Body can be a block or any expression
       field('body', choice(
         $.block,
-        $.identifier,
-        $.type_identifier,
-        $.number_literal,
-        $.string_literal,
-        $.char_literal,
-        $.boolean_literal,
-        $.list_literal,
-        $.dict_literal,
-        $.call_expression,
-        $.member_expression,
-        $.binary_expression,
-        $.unary_expression,
-        $.if_expression,
-        $.switch_expression,
-        $.parenthesized_expression,
+        $._expression,
       )),
     ),
 

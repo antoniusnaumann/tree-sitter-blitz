@@ -132,6 +132,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -264,6 +268,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -416,6 +424,10 @@
             "named": true
           },
           {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
             "type": "list_literal",
             "named": true
           },
@@ -549,6 +561,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -687,6 +703,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -819,6 +839,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -1080,6 +1104,10 @@
             "named": true
           },
           {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
             "type": "list_literal",
             "named": true
           },
@@ -1143,45 +1171,9 @@
     "type": "constructor_expression",
     "named": true,
     "fields": {
-      "type": {
+      "argument": {
         "multiple": false,
         "required": false,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "constructor_field",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "constructor_field",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
         "types": [
           {
             "type": "assert_expression",
@@ -1249,6 +1241,180 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
+            "type": "list_literal",
+            "named": true
+          },
+          {
+            "type": "member_expression",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "ordered_dict_literal",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "range_literal",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "set_literal",
+            "named": true
+          },
+          {
+            "type": "string_interpolation",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "constructor_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constructor_field",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "assert_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "async_expression",
+            "named": true
+          },
+          {
+            "type": "await_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expression",
+            "named": true
+          },
+          {
+            "type": "constructor_expression",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dict_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -1408,6 +1574,10 @@
             "named": true
           },
           {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
             "type": "list_literal",
             "named": true
           },
@@ -1544,6 +1714,10 @@
             "named": true
           },
           {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
             "type": "list_literal",
             "named": true
           },
@@ -1671,6 +1845,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -1848,6 +2026,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -2029,6 +2211,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -2304,6 +2490,10 @@
             "named": true
           },
           {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
             "type": "list_literal",
             "named": true
           },
@@ -2367,6 +2557,156 @@
         "types": [
           {
             "type": "block",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "labeled_expression",
+    "named": true,
+    "fields": {
+      "label": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "assert_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "async_expression",
+            "named": true
+          },
+          {
+            "type": "await_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expression",
+            "named": true
+          },
+          {
+            "type": "constructor_expression",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dict_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
+            "named": true
+          },
+          {
+            "type": "list_literal",
+            "named": true
+          },
+          {
+            "type": "member_expression",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "ordered_dict_literal",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "range_literal",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "set_literal",
+            "named": true
+          },
+          {
+            "type": "string_interpolation",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
             "named": true
           }
         ]
@@ -2447,6 +2787,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -2597,6 +2941,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -2863,6 +3211,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -3034,6 +3386,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "labeled_expression",
           "named": true
         },
         {
@@ -3242,6 +3598,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -3377,6 +3737,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -3453,6 +3817,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -3566,6 +3931,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -3674,6 +4043,22 @@
         "required": true,
         "types": [
           {
+            "type": "assert_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "async_expression",
+            "named": true
+          },
+          {
+            "type": "await_expression",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -3686,6 +4071,10 @@
             "named": true
           },
           {
+            "type": "break_expression",
+            "named": true
+          },
+          {
             "type": "call_expression",
             "named": true
           },
@@ -3694,7 +4083,23 @@
             "named": true
           },
           {
+            "type": "compound_assignment_expression",
+            "named": true
+          },
+          {
+            "type": "constructor_expression",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
             "type": "dict_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
             "named": true
           },
           {
@@ -3703,6 +4108,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -3718,7 +4127,27 @@
             "named": true
           },
           {
+            "type": "ordered_dict_literal",
+            "named": true
+          },
+          {
             "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "range_literal",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "set_literal",
+            "named": true
+          },
+          {
+            "type": "string_interpolation",
             "named": true
           },
           {
@@ -3735,6 +4164,10 @@
           },
           {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
             "named": true
           }
         ]
@@ -3845,6 +4278,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -4075,6 +4512,10 @@
           "named": true
         },
         {
+          "type": "labeled_expression",
+          "named": true
+        },
+        {
           "type": "list_literal",
           "named": true
         },
@@ -4273,6 +4714,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "labeled_expression",
             "named": true
           },
           {
@@ -4549,7 +4994,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "continue_expression",
