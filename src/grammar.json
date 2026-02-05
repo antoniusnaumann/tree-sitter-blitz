@@ -1,5 +1,4 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "blitz",
   "word": "identifier",
   "rules": {
@@ -1125,6 +1124,10 @@
         {
           "type": "SYMBOL",
           "name": "continue_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "try_expression"
         },
         {
           "type": "SYMBOL",
@@ -2396,6 +2399,23 @@
       "type": "STRING",
       "value": "continue"
     },
+    "try_expression": {
+      "type": "PREC_RIGHT",
+      "value": 14,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "try"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        ]
+      }
+    },
     "await_expression": {
       "type": "PREC_RIGHT",
       "value": 14,
@@ -2982,6 +3002,5 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": [],
-  "reserved": {}
+  "supertypes": []
 }

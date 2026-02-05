@@ -367,3 +367,33 @@ fn test() {
               (identifier)
               (number_literal)))
           property: (identifier))))))
+
+==================
+Try expressions
+==================
+
+fn test() {
+  let x = try foo()
+  let y = getValue().try
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (declaration
+        name: (identifier)
+        value: (try_expression
+          (call_expression
+            function: (identifier)
+            arguments: (argument_list))))
+      (declaration
+        name: (identifier)
+        value: (member_expression
+          object: (call_expression
+            function: (identifier)
+            arguments: (argument_list))
+          property: (identifier))))))

@@ -78,6 +78,7 @@
 (break_expression) @keyword.control.return
 (continue_expression) @keyword.control.return
 (return_expression "return" @keyword.control.return)
+(try_expression "try" @keyword.control.return)
 (assert_expression "assert" @keyword.control)
 (move_expression "move" @keyword.storage.modifier)
 
@@ -163,14 +164,14 @@
   (#match? @keyword.storage.modifier "^(mut|move)$"))
 
 ; Special case: UFCS forms of control flow keywords
-; .await, .async, .assert, .return can be used in member expressions
+; .await, .async, .assert, .return, .try can be used in member expressions
 (member_expression
   property: (identifier) @keyword.control
   (#match? @keyword.control "^(await|async|assert)$"))
 
 (member_expression
   property: (identifier) @keyword.control.return
-  (#eq? @keyword.control.return "return"))
+  (#match? @keyword.control.return "^(return|try)$"))
 
 ; Parameters - more specific than generic variables
 (parameter

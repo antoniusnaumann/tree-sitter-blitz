@@ -240,6 +240,7 @@ module.exports = grammar({
       $.return_expression,
       $.break_expression,
       $.continue_expression,
+      $.try_expression,
       $.await_expression,
       $.async_expression,
       $.assert_expression,
@@ -447,6 +448,11 @@ module.exports = grammar({
     break_expression: $ => 'break',
 
     continue_expression: $ => 'continue',
+
+    try_expression: $ => prec.right(14, seq(
+      'try',
+      $._expression,
+    )),
 
     await_expression: $ => prec.right(14, seq(
       'await',

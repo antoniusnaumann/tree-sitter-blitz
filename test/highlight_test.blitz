@@ -325,6 +325,29 @@ fn async_operations() {
 	let result = await img2
 }
 
+// ===== TRY EXPRESSIONS =====
+fn try_expressions() {
+	// Prefix notation
+	let x = try getValue()
+	let y = try computeResult()
+	
+	// Postfix notation (UFCS style)
+	let a = getValue().try
+	let b = computeResult().try
+	
+	// Chained with other operations
+	let c = try foo().bar()
+	let d = foo().try.bar()
+	
+	// Combined with async
+	let e = try async getRemoteData()
+	let f = async getData().try
+	
+	// With return
+	try failableOperation()
+	failableOperation().try
+}
+
 // ===== TEST DEFINITIONS =====
 test "basic arithmetic" {
 	let x = 2 + 2
