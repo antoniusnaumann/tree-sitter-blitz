@@ -80,6 +80,7 @@
 (return_expression "return" @keyword.control.return)
 (try_expression "try" @keyword.control.return)
 (assert_expression "assert" @keyword.control)
+(mut_expression "mut" @keyword.storage.modifier)
 (move_expression "move" @keyword.storage.modifier)
 
 ; Keywords - other

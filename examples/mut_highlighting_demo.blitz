@@ -1,0 +1,23 @@
+// Demonstration of mut keyword highlighting in various contexts
+
+fn example_mut_usage() {
+  // 1. mut in member expression (UFCS style) - was already working
+  foo(bar.mut)
+  
+  // 2. mut as expression prefix - NOW WORKS (was broken before)
+  foo(mut bar)
+  baz(mut x, mut y)
+  
+  // 3. mut in declarations - still works correctly
+  mut z = 5
+  mut count: Int = 0
+  
+  // 4. mut in function parameters - was already working
+  // (see function definition below)
+}
+
+fn process(mut value Int) {
+  value += 10
+}
+
+// All instances of 'mut' should now be highlighted as keyword.storage.modifier

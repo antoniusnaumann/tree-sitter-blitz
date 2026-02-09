@@ -20,6 +20,7 @@ module.exports = grammar({
     [$.for_expression, $._expression],
     [$.switch_case, $._expression],
     [$.labeled_expression, $.constructor_field],
+    [$.declaration, $._expression],
   ],
 
   rules: {
@@ -200,12 +201,12 @@ module.exports = grammar({
       $.expression_statement,
     ),
 
-    declaration: $ => seq(
+    declaration: $ => prec.dynamic(15, seq(
       choice('let', 'mut'),
       field('name', $.identifier),
       optional(seq(':', field('type', $.type))),
       optional(seq('=', field('value', $._expression))),
-    ),
+    )),
 
     expression_statement: $ => $._expression,
 
@@ -226,6 +227,7 @@ module.exports = grammar({
       $.call_expression,
       $.constructor_expression,
       $.labeled_expression,
+      $.mut_expression,
       $.move_expression,
       $.member_expression,
       $.binary_expression,
@@ -308,6 +310,16 @@ module.exports = grammar({
       field('label', $.identifier),
       ':',
       field('value', $._expression),
+    )),
+
+    mut_expression: $ => prec.right(14, seq(
+      'mut',
+      choice(
+        $.identifier,
+        $.member_expression,
+        $.call_expression,
+        $.parenthesized_expression,
+      ),
     )),
 
     move_expression: $ => prec.right(14, seq(
