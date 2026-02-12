@@ -1,5 +1,4 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "blitz",
   "word": "identifier",
   "rules": {
@@ -939,6 +938,10 @@
               {
                 "type": "STRING",
                 "value": "let"
+              },
+              {
+                "type": "STRING",
+                "value": "var"
               },
               {
                 "type": "STRING",
@@ -3049,6 +3052,5 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": [],
-  "reserved": {}
+  "supertypes": []
 }

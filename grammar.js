@@ -202,7 +202,7 @@ module.exports = grammar({
     ),
 
     declaration: $ => prec.dynamic(15, seq(
-      choice('let', 'mut'),
+      choice('let', 'var', 'mut'),
       field('name', $.identifier),
       optional(seq(':', field('type', $.type))),
       optional(seq('=', field('value', $._expression))),

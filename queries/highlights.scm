@@ -99,9 +99,10 @@
 ] @keyword.operator
 
 ; Keywords - storage/modifiers
-; Note: 'let' declares immutable variables, 'mut' declares mutable variables
+; Note: 'let' and 'var' declare immutable variables, 'mut' declares mutable variables
 [
   "let"
+  "var"
   "mut"
 ] @keyword.storage.modifier
 

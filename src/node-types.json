@@ -4259,7 +4259,6 @@
   {
     "type": "source_file",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -5647,8 +5646,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "continue_expression",
@@ -5732,6 +5730,10 @@
   },
   {
     "type": "union",
+    "named": false
+  },
+  {
+    "type": "var",
     "named": false
   },
   {
