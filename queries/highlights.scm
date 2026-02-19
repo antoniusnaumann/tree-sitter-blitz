@@ -44,13 +44,13 @@
   "..<"
   "..+"
   "+-"
-  "::"
 ] @operator
 
 ; Punctuation
 [
   ","
   "."
+  "::"
 ] @punctuation.delimiter
 
 [
