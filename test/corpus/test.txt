@@ -397,3 +397,54 @@ fn test() {
             function: (identifier)
             arguments: (argument_list))
           property: (identifier))))))
+
+==================
+Module-qualified function call
+==================
+
+fn test() {
+  let result = Matrix::multiply(a, b)
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (declaration
+        name: (identifier)
+        value: (call_expression
+          function: (scoped_identifier
+            module: (type_identifier)
+            name: (identifier))
+          arguments: (argument_list
+            (identifier)
+            (identifier)))))))
+
+==================
+UFCS method call with module qualifier
+==================
+
+fn test() {
+  let result = my_matrix.Matrix::multiply(other)
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (declaration
+        name: (identifier)
+        value: (call_expression
+          function: (member_expression
+            object: (identifier)
+            property: (scoped_identifier
+              module: (type_identifier)
+              name: (identifier)))
+          arguments: (argument_list
+            (identifier)))))))

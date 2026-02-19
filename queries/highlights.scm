@@ -44,6 +44,7 @@
   "..<"
   "..+"
   "+-"
+  "::"
 ] @operator
 
 ; Punctuation
@@ -216,6 +217,26 @@
 (call_expression
   function: (member_expression
     property: (identifier) @function.call))
+
+; Scoped (module-qualified) identifiers: Matrix::multiply
+(scoped_identifier
+  module: (type_identifier) @module)
+
+(scoped_identifier
+  name: (identifier) @variable.other)
+
+; Scoped identifier used as a direct function call: Matrix::multiply(...)
+(call_expression
+  function: (scoped_identifier
+    module: (type_identifier) @module
+    name: (identifier) @function.call))
+
+; Scoped identifier used as a UFCS method with namespace: obj.Matrix::multiply(...)
+(call_expression
+  function: (member_expression
+    property: (scoped_identifier
+      module: (type_identifier) @module
+      name: (identifier) @function.call)))
 
 ; Function definitions - most specific, should override variables
 (function_definition

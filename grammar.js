@@ -214,6 +214,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $.type_identifier,
+      $.scoped_identifier,
       $.number_literal,
       $.string_literal,
       $.char_literal,
@@ -256,7 +257,7 @@ module.exports = grammar({
     ),
 
     call_expression: $ => prec.left(15, seq(
-      field('function', choice($.identifier, $.member_expression)),
+      field('function', choice($.identifier, $.scoped_identifier, $.member_expression)),
       field('arguments', $.argument_list),
     )),
 
@@ -330,7 +331,7 @@ module.exports = grammar({
     member_expression: $ => prec.left(16, seq(
       field('object', $._expression),
       '.',
-      field('property', $.identifier),
+      field('property', choice($.identifier, $.scoped_identifier)),
     )),
 
     binary_expression: $ => choice(
@@ -565,6 +566,14 @@ module.exports = grammar({
 
     // Identifiers
     identifier: $ => /[a-z_][a-zA-Z0-9_]*/,
+
+    // Scoped identifier: module/namespace-qualified name, e.g. Matrix::multiply
+    // The module is a type_identifier (uppercase), the name is a lowercase identifier.
+    scoped_identifier: $ => prec(2, seq(
+      field('module', $.type_identifier),
+      '::',
+      field('name', $.identifier),
+    )),
 
     // Comments
     comment: $ => token(seq('//', /.*/)),

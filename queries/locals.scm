@@ -22,3 +22,8 @@
 
 ; References
 (identifier) @local.reference
+
+; Scoped identifiers reference symbols in an external module scope;
+; the name part is not a local variable reference.
+(scoped_identifier
+  name: (identifier) @local.reference)
