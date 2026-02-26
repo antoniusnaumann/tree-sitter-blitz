@@ -567,10 +567,10 @@ module.exports = grammar({
     // Identifiers
     identifier: $ => /[a-z_][a-zA-Z0-9_]*/,
 
-    // Scoped identifier: module/namespace-qualified name, e.g. Matrix::multiply
-    // The module is a type_identifier (uppercase), the name is a lowercase identifier.
+    // Scoped identifier: module/namespace-qualified name, e.g. math::multiply or Matrix::multiply
+    // The module can be either a lowercase identifier or an uppercase type_identifier.
     scoped_identifier: $ => prec(2, seq(
-      field('module', $.type_identifier),
+      field('module', alias(choice($.identifier, $.type_identifier), $.module_identifier)),
       '::',
       field('name', $.identifier),
     )),

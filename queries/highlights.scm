@@ -218,24 +218,24 @@
   function: (member_expression
     property: (identifier) @function.call))
 
-; Scoped (module-qualified) identifiers: Matrix::multiply
+; Scoped (module-qualified) identifiers: math::multiply
 (scoped_identifier
-  module: (type_identifier) @module)
+  module: (module_identifier) @namespace)
 
 (scoped_identifier
   name: (identifier) @variable.other)
 
-; Scoped identifier used as a direct function call: Matrix::multiply(...)
+; Scoped identifier used as a direct function call: math::multiply(...)
 (call_expression
   function: (scoped_identifier
-    module: (type_identifier) @module
+    module: (module_identifier) @namespace
     name: (identifier) @function.call))
 
-; Scoped identifier used as a UFCS method with namespace: obj.Matrix::multiply(...)
+; Scoped identifier used as a UFCS method with namespace: obj.math::multiply(...)
 (call_expression
   function: (member_expression
     property: (scoped_identifier
-      module: (type_identifier) @module
+      module: (module_identifier) @namespace
       name: (identifier) @function.call)))
 
 ; Function definitions - most specific, should override variables

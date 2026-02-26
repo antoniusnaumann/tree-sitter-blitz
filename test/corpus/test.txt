@@ -403,7 +403,7 @@ Module-qualified function call
 ==================
 
 fn test() {
-  let result = Matrix::multiply(a, b)
+  let result = math::multiply(a, b)
 }
 
 ---
@@ -417,7 +417,7 @@ fn test() {
         name: (identifier)
         value: (call_expression
           function: (scoped_identifier
-            module: (type_identifier)
+            module: (module_identifier)
             name: (identifier))
           arguments: (argument_list
             (identifier)
@@ -428,7 +428,7 @@ UFCS method call with module qualifier
 ==================
 
 fn test() {
-  let result = my_matrix.Matrix::multiply(other)
+  let result = my_matrix.math::multiply(other)
 }
 
 ---
@@ -444,7 +444,7 @@ fn test() {
           function: (member_expression
             object: (identifier)
             property: (scoped_identifier
-              module: (type_identifier)
+              module: (module_identifier)
               name: (identifier)))
           arguments: (argument_list
             (identifier)))))))

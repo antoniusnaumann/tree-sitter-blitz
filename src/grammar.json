@@ -3001,8 +3001,22 @@
             "type": "FIELD",
             "name": "module",
             "content": {
-              "type": "SYMBOL",
-              "name": "type_identifier"
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "type_identifier"
+                  }
+                ]
+              },
+              "named": true,
+              "value": "module_identifier"
             }
           },
           {

@@ -4195,7 +4195,7 @@
         "required": true,
         "types": [
           {
-            "type": "type_identifier",
+            "type": "module_identifier",
             "named": true
           }
         ]
@@ -5833,6 +5833,10 @@
   {
     "type": "let",
     "named": false
+  },
+  {
+    "type": "module_identifier",
+    "named": true
   },
   {
     "type": "move",
