@@ -21,6 +21,7 @@ module.exports = grammar({
     [$.switch_case, $._expression],
     [$.labeled_expression, $.constructor_field],
     [$.declaration, $._expression],
+    [$.function_definition],
   ],
 
   rules: {
@@ -119,6 +120,7 @@ module.exports = grammar({
     // Types
     type: $ => choice(
       $.type_identifier,
+      $.scoped_type_identifier,
       $.generic_type,
       $.optional_type,
       $.result_type,
@@ -133,8 +135,15 @@ module.exports = grammar({
 
     type_identifier: $ => /[A-Z][a-zA-Z0-9_]*/,
 
-    generic_type: $ => prec(2, seq(
+    // Scoped type identifier: module/namespace-qualified type name, e.g. collections::List
+    scoped_type_identifier: $ => prec(2, seq(
+      field('module', alias(choice($.identifier, $.type_identifier), $.module_identifier)),
+      '::',
       field('name', $.type_identifier),
+    )),
+
+    generic_type: $ => prec(2, seq(
+      field('name', choice($.type_identifier, $.scoped_type_identifier)),
       '(',
       seq(
         $.type,
@@ -145,23 +154,23 @@ module.exports = grammar({
     )),
 
     optional_type: $ => prec.left(1, seq(
-      choice($.type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
+      choice($.type_identifier, $.scoped_type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
       '?',
     )),
 
     result_type: $ => prec.left(1, seq(
-      choice($.type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
+      choice($.type_identifier, $.scoped_type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
       '!',
-      choice($.type_identifier, $.generic_type),
+      choice($.type_identifier, $.scoped_type_identifier, $.generic_type),
     )),
 
     result_type_unspecified: $ => prec.left(1, seq(
-      choice($.type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
+      choice($.type_identifier, $.scoped_type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
       '!',
     )),
 
     future_type: $ => prec.left(1, seq(
-      choice($.type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
+      choice($.type_identifier, $.scoped_type_identifier, $.generic_type, $.list_type, $.set_type, $.dict_type, $.ordered_dict_type),
       '~',
     )),
 
@@ -274,7 +283,7 @@ module.exports = grammar({
     constructor_expression: $ => prec(1, choice(
       // Named field constructor
       seq(
-        optional(field('type', $.type_identifier)),
+        optional(field('type', choice($.type_identifier, $.scoped_type_identifier))),
         '(',
         optional(seq(
           $.constructor_field,
@@ -285,7 +294,7 @@ module.exports = grammar({
       ),
       // Single positional argument constructor (for union variants)
       seq(
-        field('type', $.type_identifier),
+        field('type', choice($.type_identifier, $.scoped_type_identifier)),
         '(',
         field('argument', $._expression),
         ')',

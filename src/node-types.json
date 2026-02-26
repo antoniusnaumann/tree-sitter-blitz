@@ -1442,6 +1442,10 @@
         "required": false,
         "types": [
           {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           }
@@ -2591,6 +2595,10 @@
           "named": true
         },
         {
+          "type": "scoped_type_identifier",
+          "named": true
+        },
+        {
           "type": "set_type",
           "named": true
         },
@@ -2609,6 +2617,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
           {
             "type": "type_identifier",
             "named": true
@@ -3520,6 +3532,10 @@
           "named": true
         },
         {
+          "type": "scoped_type_identifier",
+          "named": true
+        },
+        {
           "type": "set_type",
           "named": true
         },
@@ -3986,6 +4002,10 @@
           "named": true
         },
         {
+          "type": "scoped_type_identifier",
+          "named": true
+        },
+        {
           "type": "set_type",
           "named": true
         },
@@ -4018,6 +4038,10 @@
         },
         {
           "type": "ordered_dict_type",
+          "named": true
+        },
+        {
+          "type": "scoped_type_identifier",
           "named": true
         },
         {
@@ -4206,6 +4230,32 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "scoped_type_identifier",
+    "named": true,
+    "fields": {
+      "module": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
             "named": true
           }
         ]
@@ -5192,6 +5242,10 @@
         },
         {
           "type": "result_type_unspecified",
+          "named": true
+        },
+        {
+          "type": "scoped_type_identifier",
           "named": true
         },
         {

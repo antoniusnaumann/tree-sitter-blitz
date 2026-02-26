@@ -448,3 +448,58 @@ fn test() {
               name: (identifier)))
           arguments: (argument_list
             (identifier)))))))
+
+==================
+Module-qualified type in annotation
+==================
+
+fn test(v collections::Vec) collections::Result {
+  v
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        name: (identifier)
+        type: (type
+          (scoped_type_identifier
+            module: (module_identifier)
+            name: (type_identifier)))))
+    return_type: (type
+      (scoped_type_identifier
+        module: (module_identifier)
+        name: (type_identifier)))
+    body: (block
+      (expression_statement
+        (identifier)))))
+
+==================
+Module-qualified generic type
+==================
+
+fn test(v collections::List(Int)) {
+  v
+}
+
+---
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        name: (identifier)
+        type: (type
+          (generic_type
+            name: (scoped_type_identifier
+              module: (module_identifier)
+              name: (type_identifier))
+            (type
+              (type_identifier))))))
+    body: (block
+      (expression_statement
+        (identifier)))))

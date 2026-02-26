@@ -130,6 +130,11 @@
 ; All other type identifiers
 (type_identifier) @type
 
+; Scoped type identifiers: math::Matrix, collections::List
+(scoped_type_identifier
+  module: (module_identifier) @namespace
+  name: (type_identifier) @type)
+
 ; Type annotations
 (parameter
   type: (type) @type)
@@ -154,9 +159,9 @@
 (constructor_field
   name: (identifier) @variable.other.member)
 
-; Labeled expressions (union variant constructors like "block: expr", "number: expr")
+; Labeled expressions (labeled arguments in calls and constructors like "name: expr")
 (labeled_expression
-  label: (identifier) @constant)
+  label: (identifier) @variable.other.member)
 
 (member_expression
   property: (identifier) @variable.other.member)
