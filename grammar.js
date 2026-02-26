@@ -442,6 +442,7 @@ module.exports = grammar({
     switch_case: $ => seq(
       field('pattern', choice(
         $.type_identifier,
+        $.scoped_type_identifier,
         $.identifier,
         $.char_literal,
         $.string_literal,

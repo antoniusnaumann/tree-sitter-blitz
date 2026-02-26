@@ -4842,6 +4842,10 @@
             "named": true
           },
           {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
+          {
             "type": "string_literal",
             "named": true
           },

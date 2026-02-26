@@ -199,6 +199,10 @@
   pattern: (identifier) @constant)
 
 (switch_case
+  pattern: (scoped_type_identifier
+    module: (module_identifier) @namespace))
+
+(switch_case
   pattern: (char_literal) @constant.character)
 
 (switch_case

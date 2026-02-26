@@ -2442,6 +2442,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "scoped_type_identifier"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "identifier"
               },
               {
